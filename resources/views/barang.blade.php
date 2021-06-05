@@ -27,7 +27,7 @@
     <body>
         <p><h1>Home</h1></p>
         <div style="overflow-x: auto">
-            <a class="tambah" href="{{ route('barang.create')}}">Tambah Data</a>
+            <a class="tambah" href="{{ route('barang.create')}}">+ Tambah Data</a>
             <table>
                 <thead>
                     <tr>
@@ -45,8 +45,13 @@
                         <td>{{ $brg->nama_barang }}</td>
                         <td>{{ $brg->harga }}</td>
                         <td>
-                            <a href="{{ url('barang/' . $brg->id . "/edit") }}">edit</a>
-                            <a href="#">hapus</a>
+                            <a href="{{ url('barang/' . $brg->id . "/edit") }}">Edit</a>
+                            <form action="{{ url('barang/' . $brg->id) }}" method="post">
+                            @csrf
+                            <input type="hidden" name="_method" value="delete">
+                            <button type="submit">Delete</button>
+                            </form>
+                            {{-- <a href="#">hapus</a> --}}
                         </td>
                     </tr>
 
