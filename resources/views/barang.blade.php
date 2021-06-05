@@ -29,6 +29,11 @@
         <p><h1>Home</h1></p>
         <div style="overflow-x: auto">
             <a class="tambah" href="{{ route('barang.create')}}">+ Tambah Data</a>
+            <p>Cari barang :</p>
+	<form action="/barang/cari" method="GET">
+		<input type="text" name="cari" placeholder="Cari .." value="{{ old('cari') }}">
+		<input type="submit" value="CARI">
+    </form>
             
             <table>
                 <thead>

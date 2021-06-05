@@ -18,6 +18,21 @@ class barangController extends Controller
         return view('barang', ['barang' => $barang]);
     }
 
+    public function cari(Request $request)
+	{
+		// menangkap data pencarian
+		$cari = $request->cari;
+ 
+    		// mengambil data dari table sesuai pencarian data
+		$barang = DB::table('barang')
+		->where('barang','like',"%".$cari."%")
+		->paginate();
+ 
+    		// mengirim data ke view barang
+		return view('barang',['barang' => $barang]);
+ 
+	}
+
     /**
      * Show the form for creating a new resource.
      *
@@ -27,6 +42,7 @@ class barangController extends Controller
     {
         return view('barang_tambah');
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -96,4 +112,5 @@ class barangController extends Controller
         $barang->delete();
         return redirect('barang');
     }
+
 }

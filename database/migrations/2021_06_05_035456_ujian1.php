@@ -28,6 +28,6 @@ class Ujian1 extends Migration
      */
     public function down()
     {
-        Schema::dropDatabaseIfExists('barang');('taable');
+        Schema::dropDatabaseIfExists('barang');('table');
     }
 }

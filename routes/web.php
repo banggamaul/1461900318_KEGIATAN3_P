@@ -17,4 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/barang', 'barangController@index');
+Route::get('/barang/cari', 'barangController@cari');
 Route::resource('barang', barangController::class);
