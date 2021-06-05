@@ -25,7 +25,7 @@ class barangController extends Controller
  
     		// mengambil data dari table sesuai pencarian data
 		$barang = DB::table('barang')
-		->where('barang','like',"%".$cari."%")
+		->where('nama_barang','like',"%".$cari."%")
 		->paginate();
  
     		// mengirim data ke view barang
