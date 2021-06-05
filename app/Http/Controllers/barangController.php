@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\barang;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class barangController extends Controller
 {
@@ -24,7 +25,7 @@ class barangController extends Controller
      */
     public function create()
     {
-        //
+        return view('barang_tambah');
     }
 
     /**
@@ -35,7 +36,12 @@ class barangController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        barang::create([
+            'nama_barang' => $request->nama_barang,
+            'harga' => $request->harga,
+        ]);
+
+        return redirect('barang');
     }
 
     /**
@@ -57,7 +63,8 @@ class barangController extends Controller
      */
     public function edit($id)
     {
-        //
+        $barang = barang::find($id);
+        return view('barang_edit', ['barang' => $barang]);
     }
 
     /**
@@ -69,7 +76,12 @@ class barangController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $barang = barang::find($id);
+        $barang->nama_barang = $request->nama_barang;
+        $barang->harga = $request->harga;
+        $barang->save();
+
+        return redirect('barang');
     }
 
     /**

@@ -45,7 +45,7 @@
                         <td>{{ $brg->nama_barang }}</td>
                         <td>{{ $brg->harga }}</td>
                         <td>
-                            <a href="#">edit</a>
+                            <a href="{{ url('barang/' . $brg->id . "/edit") }}">edit</a>
                             <a href="#">hapus</a>
                         </td>
                     </tr>
