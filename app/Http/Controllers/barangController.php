@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\barang;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
 class barangController extends Controller
@@ -18,20 +19,20 @@ class barangController extends Controller
         return view('barang', ['barang' => $barang]);
     }
 
-    public function cari(Request $request)
-	{
-		// menangkap data pencarian
-		$cari = $request->cari;
+    // public function cari(Request $request)
+	// {
+	// 	// menangkap data pencarian
+	// 	$cari = $request->cari;
  
-    		// mengambil data dari table sesuai pencarian data
-		$barang = DB::table('barang')
-		->where('nama_barang','like',"%".$cari."%")
-		->paginate();
+    // 		// mengambil data dari table sesuai pencarian data
+	// 	$barang = DB::table('barang')
+	// 	->where('nama_barang','like',"%".$cari."%")
+	// 	->paginate();
  
-    		// mengirim data ke view barang
-		return view('barang',['barang' => $barang]);
+    // 		// mengirim data ke view barang
+	// 	return view('barang',['barang' => $barang]);
  
-	}
+	// }
 
     /**
      * Show the form for creating a new resource.

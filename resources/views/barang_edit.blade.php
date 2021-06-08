@@ -3,7 +3,8 @@
         <title>Edit</title>
     </head>
     <body>
-        <p><h1>Edit</h1></p>
+        <p><h1><a href="{{url('/barang')}}">Edit</a></h1><p>
+        {{-- <p><h1>Edit</h1></p> --}}
 
         <form action="{{ url('barang/' . $barang->id) }}" method="post">
             @csrf
